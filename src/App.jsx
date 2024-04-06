@@ -3,41 +3,60 @@ import Scene from "./components/Scene";
 import Choices from "./components/Choices";
 import Story from "./components/Story";
 import { makeChoice } from "./state/actions";
-import Calendar from "./components/Calendar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import Ending from "./components/Ending";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadLinksPreset } from "@tsparticles/preset-links";
 
 const bulletin_classies = {
   appies: "h-dvh w-screen bg-indigo-200",
   scene: "text-2xl",
   story: "text-2xl",
-  choices: "text-2xl"
+  choices: "text-2xl",
+  ending: "hidden"
 }
 
 const start_classies = {
-  appies: "h-dvh w-screen bg-red-200",
-  scene: "text-2xl",
-  story: "text-2xl",
-  choices: "text-2xl"
+  appies: "h-dvh w-screen bg-red-200 z-0",
+  scene: "text-2xl z-20",
+  story: "text-2xl z-20",
+  choices: "text-2xl z-20",
+  ending: "hidden"
 }
 
 const choice_classies = {
   appies: "h-dvh w-screen bg-lime-200",
   scene: "text-2xl",
   story: "text-2xl",
-  choices: "text-2xl"
+  choices: "text-2xl",
+  ending: "hidden"
 }
 
 const ending_classies = {
   appies: "h-dvh w-screen bg-teal-200",
-  scene: "text-2xl",
-  story: "text-2xl",
-  choices: "text-2xl"
+  scene: "hidden",
+  story: "hidden",
+  choices: "hidden",
+  ending: "block text-4xl place-self-center"
 }
 
 
 
 function App(props) {
+  const [ init, setInit ] = useState(false);
   const [classies, setClassies] = useState(start_classies);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+        await loadLinksPreset(engine);
+    }).then(() => {
+        setInit(true);
+    });
+}, []);
+
+  const particlesLoaded = (container) => {
+    console.log(container);
+  };
   
   useEffect(() => {
     if (props.tags.screen == "start") {
@@ -59,10 +78,12 @@ function App(props) {
   
   return(
     <div className={"App " + classies.appies}>
-      <Calendar />
+      {init && <Particles id="tsparticles z-10" particlesLoaded={particlesLoaded} options={{background: { opacity: 0, }, preset: "links"}} />}
+      
+      <Ending classies={classies.ending}/>
       <Scene tags={props.tags} classies={classies.scene} />
       <Story sceneText={props.sceneText} classies={classies.story} />
-      <Choices choices={props.currentChoices} makeChoice={props.makeChoice} classies={classies.setClassies} />
+      <Choices choices={props.currentChoices} makeChoice={props.makeChoice} classies={classies.choices} />
     </div>
   )
 };
