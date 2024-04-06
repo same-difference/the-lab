@@ -11,10 +11,10 @@ import { loadLinksPreset } from "@tsparticles/preset-links";
 
 const start_classies = {
   state: "start",
-  appies: "h-dvh w-screen bg-teal-200 flex flex-col justify-center items-center z-0",
-  scene: "w-1/5 h-3/5 bg-teal-100/90 outline outline-offset-4 outline-1 outline-white self-center text-2xl rounded-md z-20",
+  appies: "h-dvh w-screen bg-teal-300 bodyfont flex flex-col justify-center items-center z-0",
+  scene: "w-1/5 h-2/3 text-teal-900 bg-teal-100/90 flex flex-col outline outline-offset-4 outline-2 outline-teal-200 self-center text-2xl rounded-md z-20",
   story: "text-2xl z-20",
-  choices: "text-2xl z-20",
+  choices: "text-xl z-20 text-center text-teal-900 hover:text-teal-700 hover:cursor-pointer hover:tracking-wider mx-auto py-0.5 mt-4 px-3 outline outline-offset-2 outline-1 hover:outline-2 hover:outline-offset-4 outline-teal-200/90 hover:outline-teal-500/90 rounded-2xl bg-white/80",
   ending: "hidden"
 }
 
@@ -80,16 +80,17 @@ function App(props) {
       setClassies(ending_classies);
     }
   }, [props.ending]);
-  
+
+  let story = <Story sceneText={props.sceneText} classies={classies.story} />
+  let choices = <Choices choices={props.currentChoices} makeChoice={props.makeChoice} classies={classies.choices} key="choices" />
+  let ending = <Ending classies={classies.ending} key="ending" />
+
+
   return(
     <div className={"App " + classies.appies}>
       {init && <Particles id="tsparticles z-10" particlesLoaded={particlesLoaded} options={{background: { opacity: 0, }, preset: "links"}} />}
       
-      <Scene tags={props.tags} classies={classies.scene} classState={classies.state}>
-        <Story sceneText={props.sceneText} classies={classies.story} />
-        <Choices choices={props.currentChoices} makeChoice={props.makeChoice} classies={classies.choices} />
-        <Ending classies={classies.ending} />
-      </Scene>
+      <Scene tags={props.tags} classies={classies.scene} classState={classies.state} story={story} choices={choices} ending={ending} />
       
     </div>
   )
