@@ -8,24 +8,28 @@ import Ending from "./components/Ending";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadLinksPreset } from "@tsparticles/preset-links";
 
-const bulletin_classies = {
-  appies: "h-dvh w-screen bg-indigo-200",
-  scene: "text-2xl",
-  story: "text-2xl",
-  choices: "text-2xl",
-  ending: "hidden"
-}
 
 const start_classies = {
-  appies: "h-dvh w-screen bg-red-200 z-0",
-  scene: "text-2xl z-20",
+  state: "start",
+  appies: "h-dvh w-screen bg-teal-200 flex flex-col justify-center items-center z-0",
+  scene: "w-1/5 h-3/5 bg-teal-100/90 outline outline-offset-4 outline-1 outline-white self-center text-2xl rounded-md z-20",
   story: "text-2xl z-20",
   choices: "text-2xl z-20",
   ending: "hidden"
 }
 
+const bulletin_classies = {
+  state: "bulletin",
+  appies: "h-dvh w-screen bg-teal-200 flex flex-col justify-center items-center",
+  scene: "bg-gray-100 self-center text-2xl",
+  story: "text-2xl",
+  choices: "text-2xl",
+  ending: "hidden"
+}
+
 const choice_classies = {
-  appies: "h-dvh w-screen bg-lime-200",
+  state: "choice",
+  appies: "h-dvh w-screen bg-teal-200 flex flex-col justify-center items-center",
   scene: "text-2xl",
   story: "text-2xl",
   choices: "text-2xl",
@@ -33,11 +37,12 @@ const choice_classies = {
 }
 
 const ending_classies = {
-  appies: "h-dvh w-screen bg-teal-200",
-  scene: "hidden",
+  state: "ending",
+  appies: "h-dvh w-screen bg-teal-200 flex flex-col justify-center items-center",
+  scene: "bg-gray-100 self-center text-2xl",
   story: "hidden",
   choices: "hidden",
-  ending: "block text-4xl place-self-center"
+  ending: "text-4xl"
 }
 
 
@@ -52,10 +57,10 @@ function App(props) {
     }).then(() => {
         setInit(true);
     });
-}, []);
+  }, []);
 
   const particlesLoaded = (container) => {
-    console.log(container);
+    // console.log(container);
   };
   
   useEffect(() => {
@@ -80,10 +85,12 @@ function App(props) {
     <div className={"App " + classies.appies}>
       {init && <Particles id="tsparticles z-10" particlesLoaded={particlesLoaded} options={{background: { opacity: 0, }, preset: "links"}} />}
       
-      <Ending classies={classies.ending}/>
-      <Scene tags={props.tags} classies={classies.scene} />
-      <Story sceneText={props.sceneText} classies={classies.story} />
-      <Choices choices={props.currentChoices} makeChoice={props.makeChoice} classies={classies.choices} />
+      <Scene tags={props.tags} classies={classies.scene} classState={classies.state}>
+        <Story sceneText={props.sceneText} classies={classies.story} />
+        <Choices choices={props.currentChoices} makeChoice={props.makeChoice} classies={classies.choices} />
+        <Ending classies={classies.ending} />
+      </Scene>
+      
     </div>
   )
 };
