@@ -27,20 +27,23 @@ export default function Scene({ tags, classies, classState, story, choices, endi
       pauseFor: 9999999,
     }} />
     </div>
-  {story}
   {choices}
   </>
 
   let bulletinContent = <>
-  <p>This is the {classState} state.</p>
+  <nav className="w-9/10 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200">{(tags.today !== "none") ? "Today is " + tags.today + " the " + tags.todate + "th." : "It's a great day to be a Mage."} {tags.hp} {tags.psy} {tags.juice}</nav>
+  <div className="w-9/10 mt-8 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200">{story}</div>
+  {choices}
   </>
 
   let choiceContent = <>
-    <p>This is the {classState} state.</p>
+    {story}
+    {choices}
     </>
 
   let endingContent = <>
   <p>This is the {classState} state.</p>
+  {ending}
   </>
 
   return (

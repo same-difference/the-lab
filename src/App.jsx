@@ -14,25 +14,25 @@ const start_classies = {
   appies: "h-dvh w-screen bg-teal-300 bodyfont flex flex-col justify-center items-center z-0",
   scene: "w-1/5 h-2/3 text-teal-900 bg-teal-100/90 flex flex-col outline outline-offset-4 outline-2 outline-teal-200 self-center text-2xl rounded-md z-20",
   story: "text-2xl z-20",
-  choices: "text-xl z-20 text-center text-teal-900 hover:text-teal-700 hover:cursor-pointer hover:tracking-wider mx-auto py-0.5 mt-4 px-3 outline outline-offset-2 outline-1 hover:outline-2 hover:outline-offset-4 outline-teal-200/90 hover:outline-teal-500/90 rounded-2xl bg-white/80",
+  choices: "text-xl z-20 text-center text-teal-900 hover:text-teal-700 hover:cursor-pointer hover:tracking-wider mx-auto py-0.5 mt-4 px-3 outline outline-offset-2 outline-1 hover:outline-2 hover:outline-offset-4 outline-teal-300/20 hover:outline-teal-500/90 rounded-2xl bg-white/80",
   ending: "hidden"
 }
 
 const bulletin_classies = {
   state: "bulletin",
-  appies: "h-dvh w-screen bg-teal-200 flex flex-col justify-center items-center",
-  scene: "bg-gray-100 self-center text-2xl",
-  story: "text-2xl",
-  choices: "text-2xl",
+  appies: "h-dvh w-screen bg-teal-300 bodyfont flex flex-col items-center z-0",
+  scene: "w-11/12 my-7 text-teal-900 flex flex-col text-2xl z-20",
+  story: "text-2xl z-20",
+  choices: "text-xl z-20 text-center text-teal-900 hover:text-teal-700 hover:cursor-pointer hover:tracking-wider mx-auto py-0.5 mt-4 px-3 outline outline-offset-2 outline-1 hover:outline-2 hover:outline-offset-4 outline-teal-300/20 hover:outline-teal-500/90 rounded-2xl bg-white/80",
   ending: "hidden"
 }
 
 const choice_classies = {
   state: "choice",
-  appies: "h-dvh w-screen bg-teal-200 flex flex-col justify-center items-center",
-  scene: "text-2xl",
-  story: "text-2xl",
-  choices: "text-2xl",
+  appies: "h-dvh w-screen bg-teal-300 bodyfont flex flex-col justify-center items-center z-0",
+  scene: "w-1/5 h-2/3 text-teal-900 bg-teal-100/90 flex flex-col outline outline-offset-4 outline-2 outline-teal-200 self-center text-2xl rounded-md z-20",
+  story: "text-2xl z-20",
+  choices: "text-xl z-20 text-center text-teal-900 hover:text-teal-700 hover:cursor-pointer hover:tracking-wider mx-auto py-0.5 mt-4 px-3 outline outline-offset-2 outline-1 hover:outline-2 hover:outline-offset-4 outline-teal-300/20 hover:outline-teal-500/90 rounded-2xl bg-white/80",
   ending: "hidden"
 }
 
