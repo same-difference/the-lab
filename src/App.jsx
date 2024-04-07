@@ -38,11 +38,11 @@ const choice_classies = {
 
 const ending_classies = {
   state: "ending",
-  appies: "h-dvh w-screen bg-teal-200 flex flex-col justify-center items-center",
-  scene: "bg-gray-100 self-center text-2xl",
+  appies: "h-dvh w-screen bg-teal-300 bodyfont flex flex-col items-center z-0",
+  scene: "w-11/12 my-7 text-teal-900 flex flex-col text-2xl z-20",
   story: "hidden",
   choices: "hidden",
-  ending: "text-4xl"
+  ending: "text-xl z-20 text-center text-teal-900 w-fit mx-auto py-0.5 mt-4 px-3 outline outline-offset-2 outline-1 outline-teal-100/90 rounded-2xl bg-white/80"
 }
 
 const stateToProps = state => ({
@@ -72,7 +72,7 @@ function App({tags, currentChoices, sceneText, ending, makeChoice}) {
     // console.log(container);
   };
   
-  useEffect(() => {console.log("change screen")
+  useEffect(() => {
     if (tags.screen == "start") {
       setClassies(start_classies);
     }
@@ -93,11 +93,10 @@ function App({tags, currentChoices, sceneText, ending, makeChoice}) {
   return(
     <div className={"App " + classies.appies}>
       {init && <Particles id="tsparticles z-10" particlesLoaded={particlesLoaded} options={{background: { opacity: 0, }, preset: "links"}} />}
-      {console.log(tags)}
+      
       <Scene tags={tags} classies={classies.scene} classState={classies.state} 
       story={<Story storytext={sceneText} classies={classies.story} />}
-      choices={<Choices choices={currentChoices} makeChoice={makeChoice} classies={classies.choices} />}
-      ending={<Ending classies={classies.ending} />} />
+      choices={<Choices choices={currentChoices} makeChoice={makeChoice} classies={classies.choices} />} />
       
     </div>
   )

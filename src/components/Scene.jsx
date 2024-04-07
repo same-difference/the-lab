@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Typewriter from 'typewriter-effect';
 
-export default function Scene({ tags, classies, classState, story, choices, ending }) {
+export default function Scene({ tags, classies, classState, story, choices }) {
   const [content, setContent] = useState();
 
   useEffect(() => {
@@ -40,8 +40,8 @@ export default function Scene({ tags, classies, classState, story, choices, endi
     </>
 
   let endingContent = <>
-  <p>This is the {classState} state.</p>
-  {ending}
+  <div className="headfont w-1/3 mx-auto bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200 text-center">You've completed the week.</div>
+  <div className="w-1/3 mx-auto mt-8 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200">{tags.taskCount == 10 ? "You've completed your tasks too. Good work." : `You only completed ${tags.taskCount} tasks, though. \n How come?`}</div>
   </>
 
   return (
