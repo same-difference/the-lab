@@ -2,11 +2,11 @@ import React from "react";
 
 export default function Choices ({ choices, makeChoice, classies }) {
   return(
-    <section className={"choices " + classies}>
+    <section>
       <ul>
-        {choices.map(choice => (
-          <li key={choice.index} 
-              onClick={() => makeChoice(choice.index)}>
+        {choices.map((choice, index) => (
+          <li className={"choices " + classies} key={index} 
+              onClick={() => makeChoice(index)}>
             {choice.text}
           </li>
         ))}

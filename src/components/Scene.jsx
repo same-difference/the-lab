@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Typewriter from 'typewriter-effect';
 
-
-
 export default function Scene({ tags, classies, classState, story, choices, ending }) {
   const [content, setContent] = useState();
 
@@ -12,7 +10,7 @@ export default function Scene({ tags, classies, classState, story, choices, endi
     else if (classState == "choice") setContent(choiceContent);
     else if (classState == "ending") setContent(endingContent);
 
-  }, [classState]);
+  }, [classState, choices]);
 
   let startContent = <>
   <img src="erin.png" className="rounded-full bg-center w-fit aspect-square bg-origin-content bg-auto p-8 self-center" />
@@ -30,14 +28,14 @@ export default function Scene({ tags, classies, classState, story, choices, endi
   {choices}
   </>
 
-  let bulletinContent = <>
-  <nav className="w-9/10 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200">{(tags.today !== "none") ? "Today is " + tags.today + " the " + tags.todate + "th." : "It's a great day to be a Mage."} {tags.hp} {tags.psy} {tags.juice}</nav>
+  let bulletinContent = <><nav className="headfont w-9/10 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200 flex flex-row"><span className="w-1/3">Hey, Erin!</span> <span className="text-center w-1/3">{(tags.today !== undefined) ? "Today is " + tags.today + " the " + tags.todate + "th" : "It's a great day to be a Mage."}</span> <span className="text-right w-1/3">{Array.from({ length: tags.spoons }, (_, i) => (<>🥄</>))}</span></nav>
+  
   <div className="w-9/10 mt-8 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200">{story}</div>
   {choices}
   </>
 
-  let choiceContent = <>
-    {story}
+  let choiceContent = <><nav className="headfont w-9/10 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200 flex flex-row"><span className="w-1/3">Hey, Erin!</span> <span className="text-center w-1/3">{(tags.today !== undefined) ? "Today is " + tags.today + " the " + tags.todate + "th" : "It's a great day to be a Mage."}</span> <span className="text-right w-1/3">{Array.from({ length: tags.spoons }, (_, i) => (<>🥄</>))}</span></nav>
+    <div className="w-9/10 mt-8 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200">{story}</div>
     {choices}
     </>
 
