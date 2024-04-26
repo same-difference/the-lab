@@ -48,16 +48,17 @@ export default function Scene({ tags, classies, classState, setClassState, story
 
 
   let bulletinContent = <>
-  <nav className="headfont w-9/10 md:w-11/12 lg:w-8/9 xl:w-3/4 2xl:w-2/3 max-w-[1200px] mx-auto bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200 flex flex-row">
-    <span className="w-1/3">Hey, Erin!</span>
-    <span className="text-center w-1/3">{(tags.today !== undefined) ? "Today is " + tags.today + " the " + tags.todate + "th" : "It's a great day to be a Mage."}</span>
-    <span className="text-right w-1/3">{Array.from({ length: tags.spoons }, (_, i) => (<>🥄</>))}</span>
+  <nav className="headfont w-11/12 md:w-11/12 lg:w-8/9 xl:w-3/4 2xl:w-2/3 max-w-[1200px] mx-auto bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200 flex flex-row">
+    <span className="hidden md:inline-block ml-5">Hey, Erin!</span>
+    <span className="md:hidden w-full ml-5">{(tags.today !== undefined) ? tags.today : "It's a great day to be a Mage."}</span>
+    <span className="hidden md:inline-block text-center text-nowrap mx-auto">{(tags.today !== undefined) ? "Today is " + tags.today + " the " + tags.todate + "th" : "It's a great day to be a Mage."}</span>
+    <span className="w-24 text-right text-nowrap mr-5 lg:mr-3">{Array.from({ length: tags.spoons }, (_, i) => (<>🥄</>))}</span>
   </nav>
 
   <div className="mx-auto w-full place-content-center lg:flex lg:flex-row mb-8">
-    <div className="w-9/10 md:w-2/3 lg:w-2/5 xl:w-1/3 2xl:w-1/4 max-w-[400px] max-h-[520px] mx-auto lg:mx-0 mt-8 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200 flex flex-col">
+    <div className="w-9/10 md:w-2/3 lg:w-2/5 xl:w-1/3 2xl:w-1/4 max-w-[400px] h-[520px] lg:h-[830px] xl:h-[950px] mx-auto lg:mx-0 mt-8 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200 flex flex-col">
       <h1 className="text-4xl headfont text-teal-700 font-bold my-5 text-center">To Do</h1>
-      <div className="w-5/6 mx-auto h-64 md:h-80 lg:h-96 overflow-y-auto mb-10">
+      <div className="w-5/6 mx-auto h-64 md:h-80 lg:h-[700px] xl:h-[900px] overflow-y-auto mb-10">
         {tags.do_task1 == 0 && <div className="w-5/6 md:w-2/3 lg:w-5/6 text-base lg:text-lg bg-teal-500/20 mx-auto text-center px-10 pt-5 pb-10 mb-6 break-inside-avoid">{tags.task1}<br/><p className="mt-3 outline outline-1 outline-offset-5 outline-teal-500 rounded-3xl w-fit py-1 px-5 mx-auto text-center text-teal-700">2 🥄</p></div>}
         {tags.do_task2 == 0 && <div className="w-5/6 md:w-2/3 lg:w-5/6 text-base lg:text-lg bg-teal-500/20 mx-auto text-center px-10 pt-5 pb-10 mb-6 break-inside-avoid">{tags.task2}<br/><p className="mt-3 outline outline-1 outline-offset-5 outline-teal-500 rounded-3xl w-fit py-1 px-5 mx-auto text-center text-teal-700">1 🥄</p></div>}
         {tags.do_task3 == 0 && <div className="w-5/6 md:w-2/3 lg:w-5/6 text-base lg:text-lg bg-teal-500/20 mx-auto text-center px-10 pt-5 pb-10 mb-6 break-inside-avoid">{tags.task3}<br/><p className="mt-3 outline outline-1 outline-offset-5 outline-teal-500 rounded-3xl w-fit py-1 px-5 mx-auto text-center text-teal-700">2 🥄</p></div>}
@@ -71,7 +72,7 @@ export default function Scene({ tags, classies, classState, setClassState, story
       </div>
     </div>
     
-      <div className="w-full max-w-[400px] md:w-2/3 lg:max-w-[760px] mx-auto lg:mr-0 lg:ml-10">
+      <div className="w-full max-w-[400px] lg:max-w-[760px] mx-auto lg:mr-0 lg:ml-10">
         <div className="my-8 bg-teal-100/90 rounded-md p-10 text-md outline outline-offset-4 outline-2 outline-teal-200">
           {
             // TODO: Replace audios here with pixel art or journal entries as the tasks update
@@ -94,16 +95,17 @@ export default function Scene({ tags, classies, classState, setClassState, story
 
 
   let choiceContent = <>
-  <nav className="headfont w-9/10 md:w-11/12 lg:w-8/9 xl:w-3/4 2xl:w-2/3 max-w-[1200px] mx-auto bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200 flex flex-row">
-    <span className="w-1/3">Hey, Erin!</span>
-    <span className="text-center w-1/3">{(tags.today !== undefined) ? "Today is " + tags.today + " the " + tags.todate + "th" : "It's a great day to be a Mage."}</span>
-    <span className="text-right w-1/3">{Array.from({ length: tags.spoons }, (_, i) => (<>🥄</>))}</span>
+  <nav className="headfont w-11/12 md:w-11/12 lg:w-8/9 xl:w-3/4 2xl:w-2/3 max-w-[1200px] mx-auto bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200 flex flex-row">
+    <span className="hidden md:inline-block ml-5">Hey, Erin!</span>
+    <span className="md:hidden w-full ml-5">{(tags.today !== undefined) ? tags.today : "It's a great day to be a Mage."}</span>
+    <span className="hidden md:inline-block text-center text-nowrap mx-auto">{(tags.today !== undefined) ? "Today is " + tags.today + " the " + tags.todate + "th" : "It's a great day to be a Mage."}</span>
+    <span className="w-24 text-right text-nowrap mr-5 lg:mr-3">{Array.from({ length: tags.spoons }, (_, i) => (<>🥄</>))}</span>
   </nav>
 
   <div className="mx-auto w-full place-content-center lg:flex lg:flex-row mb-8">
-    <div className="w-9/10 md:w-2/3 lg:w-2/5 xl:w-1/3 2xl:w-1/4 max-w-[400px] max-h-[520px] mx-auto lg:mx-0 mt-8 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200 flex flex-col">
+    <div className="w-9/10 md:w-2/3 lg:w-2/5 xl:w-1/3 2xl:w-1/4 max-w-[400px] h-[520px] lg:h-[830px] xl:h-[950px] mx-auto lg:mx-0 mt-8 bg-teal-100/90 rounded-md p-2 text-md outline outline-offset-4 outline-2 outline-teal-200 flex flex-col">
       <h1 className="text-4xl headfont text-teal-700 font-bold my-5 text-center">To Do</h1>
-      <div className="w-5/6 mx-auto h-64 md:h-80 lg:h-96 overflow-y-auto mb-10">
+      <div className="w-5/6 mx-auto h-64 md:h-80 lg:h-[700px] xl:h-[900px] overflow-y-auto mb-10">
         {tags.do_task1 == 0 && <div className="w-5/6 md:w-2/3 lg:w-5/6 text-base lg:text-lg bg-teal-500/20 mx-auto text-center px-10 pt-5 pb-10 mb-6 break-inside-avoid">{tags.task1}<br/><p className="mt-3 outline outline-1 outline-offset-5 outline-teal-500 rounded-3xl w-fit py-1 px-5 mx-auto text-center text-teal-700">2 🥄</p></div>}
         {tags.do_task2 == 0 && <div className="w-5/6 md:w-2/3 lg:w-5/6 text-base lg:text-lg bg-teal-500/20 mx-auto text-center px-10 pt-5 pb-10 mb-6 break-inside-avoid">{tags.task2}<br/><p className="mt-3 outline outline-1 outline-offset-5 outline-teal-500 rounded-3xl w-fit py-1 px-5 mx-auto text-center text-teal-700">1 🥄</p></div>}
         {tags.do_task3 == 0 && <div className="w-5/6 md:w-2/3 lg:w-5/6 text-base lg:text-lg bg-teal-500/20 mx-auto text-center px-10 pt-5 pb-10 mb-6 break-inside-avoid">{tags.task3}<br/><p className="mt-3 outline outline-1 outline-offset-5 outline-teal-500 rounded-3xl w-fit py-1 px-5 mx-auto text-center text-teal-700">2 🥄</p></div>}
@@ -117,25 +119,27 @@ export default function Scene({ tags, classies, classState, setClassState, story
       </div>
     </div>
     
-      <div className="w-full max-w-[400px] md:w-2/3 lg:max-w-[760px] mx-auto lg:mr-0 lg:ml-10">
-        <div className="my-8 bg-teal-100/90 rounded-md p-10 text-md outline outline-offset-4 outline-2 outline-teal-200">
-          {tags.art == 1 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
-          {tags.art == 2 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
-          {tags.art == 3 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
-          {tags.art == 4 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
-          {tags.art == 5 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
-          {tags.art == 6 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
-          {tags.art == 7 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
-          {tags.art == 8 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
-          {tags.art == 9 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
-          {tags.art == 10 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
-          {story}
-          {
-            // TODO: Replace the images for spoons with pixel art
-          }
-          {(tags.spoons == 0) && <>{!tags.art ? <img className="mx-auto mt-10 max-w-[200px]" src="week_1.jpg" /> : <img className="mx-auto mt-10 my-4 max-w-[200px]" src="week_1.jpg" />}{!tags.art && <h1 className="text-3xl mt-6 mb-10 headfont font-bold text-center">Ughh...</h1>}</>}
-          {(tags.spoons == 1 && !tags.art) && <><img className="mx-auto mt-10 max-w-[200px]" src="week_2.jpg" /><h1 className="text-3xl mt-6 mb-10 headfont font-bold text-center">Alrighty, let's get to work.</h1></>}
-          {(tags.spoons == 2 && !tags.art) && <><img className="mx-auto mt-10 max-w-[200px]" src="week_3.jpg" /><h1 className="text-3xl mt-6 mb-10 headfont font-bold text-center">Let's go!!!</h1></>}
+      <div className="w-full max-w-[400px] lg:max-w-[760px] mx-auto lg:mr-0 lg:ml-10">
+        <div className="my-8 mx-auto bg-teal-100/90 rounded-md p-10 text-md outline outline-offset-4 outline-2 outline-teal-200">
+          <div className="max-h-[520px] lg:max-h-[700px] xl:max-h-[790px] overflow-y-auto">
+            {tags.art == 1 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
+            {tags.art == 2 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
+            {tags.art == 3 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
+            {tags.art == 4 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
+            {tags.art == 5 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
+            {tags.art == 6 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
+            {tags.art == 7 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
+            {tags.art == 8 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
+            {tags.art == 9 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
+            {tags.art == 10 && <img className="mx-auto mb-10 max-w-[200px]" src="the-lab.jpg"/>}
+            {story}
+            {
+              // TODO: Replace the images for spoons with pixel art
+            }
+            {(tags.spoons == 0) && <>{!tags.art ? <img className="mx-auto mt-10 max-w-[200px]" src="week_1.jpg" /> : <img className="mx-auto mt-10 my-4 max-w-[200px]" src="week_1.jpg" />}{!tags.art && <h1 className="text-3xl mt-6 mb-10 headfont font-bold text-center">Ughh...</h1>}</>}
+            {(tags.spoons == 1 && !tags.art) && <><img className="mx-auto mt-10 max-w-[200px]" src="week_2.jpg" /><h1 className="text-3xl mt-6 mb-10 headfont font-bold text-center">Alrighty, let's get to work.</h1></>}
+            {(tags.spoons == 2 && !tags.art) && <><img className="mx-auto mt-10 max-w-[200px]" src="week_3.jpg" /><h1 className="text-3xl mt-6 mb-10 headfont font-bold text-center">Let's go!!!</h1></>}
+          </div>
         </div>
         {choices}
       </div>
