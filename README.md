@@ -5,7 +5,7 @@ Thing is, Erin's disabled. [She only has so many spoons in a day](https://en.wik
 
 ### This game was created for WiNGHacks 2024.
 * The devpost for this project can be located [here](https://devpost.com/software/the-lab-hfynjw).
-* You can play the game [here](https://ourlabdoesnt.compare/).
+* You can play the game [here](https://the-lab-psi.vercel.app/).
 
 ## Demo 🎥🎮
 [![Watch the video](https://img.youtube.com/vi/Vdf8oLnoa0U/hqdefault.jpg)](https://youtu.be/Vdf8oLnoa0U)
